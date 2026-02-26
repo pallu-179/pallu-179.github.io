@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>sukanya’s 1k hype 💗⭐🎉</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "comic sans ms", cursive, sans-serif;
+      background: linear-gradient(135deg, #4fd1c5, #c4a1ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.9);
+      padding: 18px;
+      border-radius: 18px;
+      width: 90%;
+      max-width: 380px;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 8px;
+    }
+
+    #cake {
+      font-size: 100px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .popAnim {
+      animation: cakePop 0.35s forwards;
+    }
+
+    @keyframes cakePop {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.8); opacity: 1; }
+      100% { transform: scale(2.2); opacity: 0; }
+    }
+
+    #message {
+      opacity: 0;
+      transform: scale(0.8);
+      font-size: 1.8rem;
+      color: #6a00ff;
+      animation: showMsg 0.5s forwards 0.4s;
+    }
+
+    @keyframes showMsg {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .confetti {
+      position: fixed;
+      top: -10px;
+      font-size: 22px;
+      animation: rain 3s linear forwards;
+    }
+
+    @keyframes rain {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <img src="photo.png" alt="sukaina">
+    <h2>sukanya⭐🩵</h2>
+    <p>tap the cake to celebrate 1k subs 📈🎉</p>
+
+    <div id="cake" onclick="explodeCake()">🎂</div>
+
+    <div id="message">
+      🎉 sukanya⭐ hit <b>1k subscribers</b> 😭💗🎉<br>
+      you’re literally iconic gurl 😭🎀
+    </div>
+  </div>
+
+  <audio id="music" src="music.mp3"></audio>
+
+  <script>
+    function explodeCake() {
+      const cake = document.getElementById("cake");
+      const msg = document.getElementById("message");
+      const music = document.getElementById("music");
+
+      cake.classList.add("popAnim");
+
+      setTimeout(() => {
+        cake.style.display = "none";
+        msg.style.opacity = "1";
+        music.play();
+
+        for (let i = 0; i < 40; i++) {
+          let c = document.createElement("div");
+          c.className = "confetti";
+          c.innerText = ["🎉","✨","💜","🎊","⭐"][Math.floor(Math.random()*5)];
+          c.style.left = Math.random() * 100 + "vw";
+          c.style.animationDuration = (2 + Math.random() * 2) + "s";
+          document.body.appendChild(c);
+
+          setTimeout(() => c.remove(), 3000);
+        }
+      }, 350);
+    }
+  </script>
+
+</body>
+</html>
